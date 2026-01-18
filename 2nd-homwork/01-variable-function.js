@@ -19,7 +19,7 @@ let memberPoint = 15_800
 const API_BASE_URL = 'https://api.example.com'
 
 // 7. 게시글의 "조회수(예: 1,234)"를 담는 변수를 선언하고 값을 할당하세요.
-viewCount = 1_234
+let viewCount = 1_234
 
 // 8. "배송 상태('준비중', '배송중', '배송완료' 중 하나)"를 담는 변수를 작성해보세요.
 let deliveryStatus = '준비중'
@@ -31,7 +31,7 @@ let isCanUseCoupon = true
 const MAX_FILE_SIZE = 10_485_760
 
 // 11. "사용자 등급 점수(예: 85.5점)"를 담는 변수를 선언하고 소수점이 포함된 값을 할당하세요.
-userScore = 85.5
+let userScore = 85.5
 
 // 12. "알림 수신 동의 여부"를 담는 변수를 선언하고 불리언 타입 값을 설정하세요.
 let isMarketingAgreed = false
@@ -102,6 +102,7 @@ function deliverFee(orderPrice, location) {
   const EXTRA_FEE = 3_000;
   const EXTRA_LOCATION = location === '제주' || location === '도서';
   
+
   // 만약에 5만원 이상이면 FREE_SHIPPING은 true값
   const FREE_FEE = (PRICE >= FREE_SHIPPING_THRESHOLD)
 
@@ -112,7 +113,7 @@ function deliverFee(orderPrice, location) {
   !EXTRA_LOCATION ? result : result += EXTRA_FEE
   
   // 만약에 값이 0이면, 운임은 0 처리
-  !PRICE <= 0 ? '' : result = 0
+  !(PRICE <= 0) ? result : result = 0
 
   return result
 }
@@ -233,6 +234,7 @@ function calcPoint(grade, price) {
 }
 
 console.log(calcPoint('vip', '100050원'))
+console.log(calcPoint(null, '100050원'))
 
 
 /*
@@ -254,31 +256,51 @@ console.log(calcPoint('vip', '100050원'))
 
 */
 
-function movieCharge(movie, discount, person) {
+function calculateTicketPrice(movieType, isEarlyBird, personCount) {
 
-  // 가격을 변수로 선언합니다.
-  let totalCharge
-  // 가끔 소문자로 쓰는 실수도 있으니 대문자로 변환합니다.
-  movie = movie.toUpperCase()
+  const PRICE_TABLE = {
+      '일반': 14000,
+      '3D': 17000,
+      'IMAX': 20000
+  };
+  const DISCOUNT_RATE = 0.2;
 
-  const MOVIE_PRICE = {
-    'NORMAL': 14000,
-    '3D': 16000,
-    'IMAX': 20000
+  const typeKey = movieType ? movieType.trim() : ''; 
+
+  // 3. 유효성 검사 (Validation)
+  // 없는 영화 타입이 들어오면 에러를 던지거나 0을 반환해야 합니다.
+  if (!PRICE_TABLE[typeKey]) {
+    console.error(`[Error] 유효하지 않은 영화 타입입니다: ${movieType}`);
+    return 0; 
   }
 
-  totalCharge = MOVIE_PRICE[movie]
-  discount == true ? (totalCharge = totalCharge * (1- 0.2)) : (totalCharge = totalCharge)
+  // 4. 가격 계산 로직
+  let unitPrice = PRICE_TABLE[typeKey];
 
-  // 사람 수를 곱합니다.
-  const count = parseInt(person) || 0;
-  totalCharge = totalCharge * count
+  // 조조 할인 적용
+  if (isEarlyBird) {
+    unitPrice = unitPrice * (1 - DISCOUNT_RATE);
+  }
 
-  return totalCharge
+    // 5. 인원 수 파싱
+    // parseInt는 "2명" -> 2로 변환해주지만, "명2" -> NaN이 됩니다.
+    // 실무에서는 확실하게 숫자만 추출하거나 유효성 검사를 더 엄격하게 합니다.
+    const count = parseInt(personCount, 10) || 0;
+
+    if (count <= 0) {
+        console.warn('[Warning] 관람 인원은 1명 이상이어야 합니다.');
+        return 0;
+    }
+
+    // 최종 금액 계산
+    const totalCost = unitPrice * count;
+
+    return totalCost;
 }
 
-console.log(movieCharge('IMAX', true, '1명'))
-console.log(movieCharge('Imax', true, NaN))
+console.log(calculateTicketPrice('IMAX', true, '1명'))
+console.log(calculateTicketPrice('3D', false, '1명'))
+console.log(calculateTicketPrice('Imax', true, NaN))
 
 
 
