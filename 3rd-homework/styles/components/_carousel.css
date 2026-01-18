@@ -1,0 +1,129 @@
+.carousel-wrapper{
+  display: flex;
+  flex-flow: nowrap column;
+  max-width: 24em;
+  margin-inline: auto;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04);
+  font-family: 'Noto Sans KR';
+
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+
+.carousel-page{
+  flex-basis: 1;
+  font-size: 1.125em;
+  .current-page{
+    color: rgba(0, 0, 0, 1);
+  }
+  span{
+    color: rgba(0, 0, 0, 0.64);
+  }
+}
+
+.carousel-top{
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;  
+  height: 4em;
+  padding: 0.875em 0.625em;
+}
+
+.carousel-title{
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+  height: 2.25em;
+  padding: 0.375em 0.75em;
+  border-radius: 6.25em;
+  img{
+    height: 1.5em;
+  }
+  h3{
+    margin-inline: 0.375em;
+  }
+}
+
+.carousel-viewport{
+padding: 0 1.5em;
+
+.carousel-list{
+  display: flex;
+  gap: 1rem;
+}
+
+.carousel-item{
+  &:hover .img-wrap img:first-of-type{
+    scale: 1.025;
+  }
+}
+
+
+.carousel-item-title{
+  width: 160px;
+  padding-top: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.carousel-item-desc, .carousel-item-type{
+  font-size: 14px;
+  font-weight: 350;
+  letter-spacing: -0.01em;
+}
+.carousel-item-type{
+  margin-top: 0.5em;
+  color: rgba(0, 0, 0, 0.48);
+}
+
+.img-wrap{
+  position: relative;
+  box-sizing: content-box;
+  max-width: 10em;
+  padding-top: 3px;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  img:first-of-type{
+    position: relative;
+    z-index: 2;
+    transition: all 0.2s;
+  }
+
+  img:last-of-type{
+    position: absolute;
+    bottom: 0; left: 0;
+    z-index: 0;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+  }
+}
+
+}
+
+
+.carousel-controller{
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  justify-content: center;
+  order: 3;
+  height: 3.875em;
+  
+  button{
+    display: flex;
+    flex-flow: nowrap row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+  }
+}
