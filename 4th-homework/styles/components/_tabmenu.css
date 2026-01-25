@@ -1,0 +1,276 @@
+.tab-box--wrapper{
+  max-width: 35.5em;
+  margin-inline: auto;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+
+.tab-box--header{
+  position: relative;
+  display: flex;
+  width: 100%;
+  font-size: 0.875rem;
+
+  &::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--unfocus-color);
+  }
+}
+
+
+.tab-box--button{
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 73px;
+  padding: 7px;
+  color: var(--unfocus-color);
+  transition: all 0.2s ease-out;
+
+  .tab-button--wrapper{
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 0.4375em;
+    align-items: center;
+    justify-content: center;    
+    width: 100%; height: 100%;
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  &:hover{
+    background-color: var(--hover-color);
+  }
+
+  &.is-active{
+    color: var(--prime-color);
+  }
+
+  &:focus{
+    outline: none;
+    .tab-button--wrapper{
+      outline: 1.5px dashed var(--prime-color);
+    }
+  }
+
+  &.is-active::after{
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    display: block;
+    width: 100%; height: 3px;
+    border-radius: 6px 6px 0 0;
+    background-color: var(--prime-color);
+  }
+}
+
+.tab-box--bottom{
+  padding: 34px 29px 0;
+
+  h2 {
+    margin-bottom: 16px;
+    color: var(--black-color);
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+.account-item{
+  padding: 26px 20px 22px;
+  border: var(--tab-box-border);
+  border-radius: var(--tab-box-radius);
+  line-height: 1;
+
+  .account-title{
+    margin-bottom: 12px;
+    color: var(--gary-color-100);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .account-number{
+    margin-bottom: 14px;
+    color: var(--dark-black-color);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .account-balance{
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &:nth-of-type(odd){
+    .account-balance{
+      color: var(--prime-color);
+    }
+  }
+
+  &:nth-of-type(even){
+    .account-balance{
+      color: var(--second-color);
+    }
+  }
+
+  & ~ .account-item{
+    margin-top: 16px;
+  }
+}
+
+.invest-item{
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: var(--tab-box-border);
+  border-radius: var(--tab-box-radius);
+
+  .invest-item--info{
+    text-align: right;
+  }
+
+  .invest-item--title{
+    h3{
+      margin-block-end: 1px;
+      color: var(--gary-color-300);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 23px;
+      letter-spacing: -0.04em;
+    }
+    p{
+      color: var(--gary-color-200);
+      font-size: 12px;
+      line-height: 17px;
+    }
+  }
+
+  .invest-item--info{
+    .invest-balance{
+      margin-block-end: 4px;
+      color: var(--dark-black-color);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 23px;
+    }
+    .invest-dcr{
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 20px;
+
+      &.plus{
+        color: var(--second-color);
+      }
+
+      &.minus{
+        color: var(--warn-color);
+      }
+    }
+  }
+
+  & ~ .invest-item{
+    margin-block-start: 12px;
+  }
+}
+
+.transaction-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: var(--tab-box-border);
+  border-radius: var(--tab-box-radius);
+
+
+  & ~ .transaction-item{
+    margin-block-start: 12px;
+  }
+
+  .transaction-item--title{
+    .date{
+      margin-block-end: 5px;
+      color: var(--gary-color-200);
+      font-size: 12px;
+      line-height: 17px;
+    }
+
+    h3{
+      color: var(--gary-color-300);
+      font-size: 15px;
+      font-weight: 700;
+      line-break: 22px;
+    }
+  }
+  
+  .transaction-item--info{
+    font-size: 16px;
+    font-weight: 700;
+
+    .transaction-charge.plus{
+      color: var(--prime-color);
+    }
+    .transaction-charge.minus{
+      color: var(--warn-color);
+    }
+  }
+}
+
+
+.card-item{
+  padding: 26px 24px 24px 24px;
+  border: 1px solid rgba(222, 222, 222, 1);
+  border-radius: 14px;
+  color: var(--white-color);
+
+  &.visa{
+    background: var(--third-color);
+  }
+  &.master{
+    background: var(--prime-color);
+  }
+  & ~ .card-item{
+    margin-block-start: 16px;
+  }
+
+  .card-title{
+    margin-block-end: 28px;
+  }
+  .card-number{
+    margin-block-end: 29px;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+  }
+  .card-info{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .card-use{
+    .card-balance-title{
+      margin-block-end: 7px;
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 0.02em;
+    }
+    .card-balance{
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 29px;
+    }
+  }
+  .card-brand{
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+

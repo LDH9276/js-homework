@@ -57,6 +57,7 @@ const carouselController = document.querySelector('.carousel-controller')
 const prevButton = carouselController.querySelector('.prev')
 const nextButton = carouselController.querySelector('.next')
 
+// 방향 설정
 prevButton.addEventListener('click', () => carouselControll('prev'))
 nextButton.addEventListener('click', () => carouselControll('next'))
 
@@ -115,9 +116,9 @@ function updateCard(direction, index) {
     // .src 속성과 .innerText로 변경합니다.
     cardCharacter.src = `./images/${items[index].itemThumbnail[0]}`
     cardBg.src = `./images/${items[index].itemThumbnail[1]}`
-    cardTitle.innerText = items[index].itemTitle
-    cardDesc.innerText = items[index].itemDesc
-    cardType.innerText = items[index].itemType
+    cardTitle.textContent = items[index].itemTitle
+    cardDesc.textContent = items[index].itemDesc
+    cardType.textContent = items[index].itemType
   } else {
     console.error('데이터를 잘못 받아왔습니다!')
   }

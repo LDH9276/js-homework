@@ -1,0 +1,38 @@
+:root {
+
+  /* color */
+  --prime-color: rgba(5, 95, 234, 1);
+  --second-color: rgba(73, 179, 110, 1);
+  --third-color: rgba(114, 127, 142, 1);
+  --unfocus-color: rgba(147, 147, 147, 1);
+  --warn-color: rgba(212, 57, 44, 1);
+  --hover-color: rgba(246, 248, 254, 1);
+  --white-color: rgba(255, 255, 255, 1);
+  --dark-black-color: rgba(0, 0, 0, 1);
+  --black-color: rgba(64, 64, 64, 1);
+  --gary-color-100: rgba(128, 128, 128, 1);
+  --gary-color-200: rgba(143, 154, 165, 1);
+  --gary-color-300: rgba(107, 128, 148, 1);
+
+  --tab-box-border: 1px solid rgba(222, 222, 222, 1);
+  --tab-box-radius: 16px;
+
+  /* foreground / background */
+  --text-color: light-dark(var(--blue-gray-900), var(--blue-gray-100));
+  --background-color: light-dark(var(--blue-gray-100), var(--blue-gray-950));
+  
+  /* button */
+  --button-text-color: light-dark(var(--blue-100), var(--blue-gray-950));
+  --button-background-color: var(--blue-500);
+  --button-hover-background-color: var(--blue-600);
+
+  /* modal dialog */
+  --modal-text-color: var(--blue-500);
+  --modal-shadow-color: rgba(0 0 0 / 15%);
+  --modal-overlay-background-color: rgba(0 0 10 / 50%);
+  --dialog-text-color: light-dark(var(--blue-900), var(--blue-100));
+  --dialog-background-color: light-dark(var(--blue-100), var(--blue-800));
+  --dialog-close-button-color: light-dark(var(--white), var(--gray-950));
+  --dialog-close-button-background-color: light-dark(var(--blue-900), var(--blue-50));
+  --dialog-close-button-hover-background-color: var(--blue-500);
+}

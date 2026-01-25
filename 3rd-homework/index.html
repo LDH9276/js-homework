@@ -12,18 +12,71 @@
   </head>
 
   <body class="">
-    <section class="carousel-wrapper">
+
+    <h1>카카오게임즈 캐러셀 예제</h1>
+
+    <article class="carousel-wrapper">
 
       <!-- 상단 영역 -->
       <div class="carousel-top">
-        <a href="#none" class="carousel-title">
-          <img src="./images/game-icon.png" alt="" aria-hidden="true"/>
-          <h3>추천 게임</h3>
+
+        <!-- 추가 수정 : 접근성을 위해 추가 속성을 입력할 것. -->
+        <a href="#none" class="carousel-title" aria-label="카카오게임즈 웹사이트 바로가기 (새 창)" rel="noopener noreferrer" target="_blank">
+
+          <img src="./images/game-icon.png" alt=""/>
+          
+          <h2>추천 게임</h2>
+          
           <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M0.256286 0.251054C0.598002 -0.0836847 1.1519 -0.0836847 1.49361 0.251054L6.74371 5.39397C7.08543 5.72871 7.08543 6.27129 6.74371 6.60603L1.49361 11.7489C1.1519 12.0837 0.598002 12.0837 0.256286 11.7489C-0.0854288 11.4142 -0.0854288 10.8716 0.256286 10.5369L4.88772 6L0.256286 1.46312C-0.0854288 1.12838 -0.0854288 0.585793 0.256286 0.251054Z" fill="#858585"/>
           </svg>
         </a>
       </div>
+
+
+      <!-- 아이템 영역 -->
+      <div class="carousel-viewport">
+        <ul class="carousel-list">
+          <li class="carousel-page" id="carousel-left" role="group" aria-roledescription="슬라이드" aria-labelledby="game-1-title">
+            <a href="#none" class="carousel-item" target="_blank" rel="noopener noreferrer" aria-label="'크로노 오디세이' 웹사이트 바로가기 (새창)">
+              <div class="img-wrap">
+                <img src="./images/item1-1.png" alt="" data-id="img-character"/>
+                <img src="./images/item1-2.png" alt="" data-id="img-bg" />
+              </div>
+              <div class="text-content">
+                <h3 class="carousel-item-title">
+                  크로노 오디세이
+                </h3>
+                <p class="carousel-item-desc">
+                  멈춰 있던 시간이 흐른다
+                </p>
+                <p class="carousel-item-type">
+                  MMORPG
+                </p>
+              </div>
+            </a>
+          </li>
+          <li class="carousel-page" id="carousel-right" role="group" aria-roledescription="슬라이드" aria-labelledby="game-1-title">
+            <a href="#none" class="carousel-item" target="_blank" rel="noopener noreferrer" aria-label="'크로노 오디세이' 웹사이트 바로가기 (새창)">
+              <div class="img-wrap">
+                <img src="./images/item2-1.png" alt="" data-id="img-character"/>
+                <img src="./images/item2-2.png" alt="" data-id="img-bg" />
+              </div>
+              <div class="text-content">
+                <h3 class="carousel-item-title">
+                  아키에이지 워
+                </h3>
+                <p class="carousel-item-desc">
+                  시대의 전설을 향해
+                </p>
+                <p class="carousel-item-type">
+                  MMORPG
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>      
       
       <!-- 컨트롤러 영역 -->
       <div class="carousel-controller">
@@ -46,50 +99,7 @@
         </button>
       </div>
 
-      <!-- 아이템 영역 -->
-      <div class="carousel-viewport">
-        <ul class="carousel-list">
-          <li class="carousel-page" id="carousel-left">
-            <a href="#none" class="carousel-item">
-              <div class="img-wrap">
-                <img src="./images/item1-1.png" alt="" data-id="img-character"/>
-                <img src="./images/item1-2.png" alt="" data-id="img-bg" />
-              </div>
-              <div class="text-content">
-                <h4 class="carousel-item-title">
-                  크로노 오디세이
-                </h4>
-                <p class="carousel-item-desc">
-                  멈춰 있던 시간이 흐른다
-                </p>
-                <p class="carousel-item-type">
-                  MMORPG
-                </p>
-              </div>
-            </a>
-          </li>
-          <li class="carousel-page" id="carousel-right">
-            <a href="#none" class="carousel-item">
-              <div class="img-wrap">
-                <img src="./images/item2-1.png" alt="" data-id="img-character"/>
-                <img src="./images/item2-2.png" alt="" data-id="img-bg" />
-              </div>
-              <div class="text-content">
-                <h4 class="carousel-item-title">
-                  아키에이지 워
-                </h4>
-                <p class="carousel-item-desc">
-                  시대의 전설을 향해
-                </p>
-                <p class="carousel-item-type">
-                  MMORPG
-                </p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
+    </article>
   </body>
 
 </html>
