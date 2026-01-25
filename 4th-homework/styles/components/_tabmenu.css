@@ -221,10 +221,10 @@ body{
     font-size: 16px;
     font-weight: 700;
 
-    .transaction-charge.plus{
+    .transaction-charge[data-role = "plus"]{
       color: var(--prime-color);
     }
-    .transaction-charge.minus{
+    .transaction-charge[data-role = "minus"]{
       color: var(--warn-color);
     }
   }
