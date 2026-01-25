@@ -45,7 +45,7 @@ let tags = ''
 
 // DOM이 열렸을 때, 해당 랜더링으로 추가합니다.
 // 유지보수를 위해 for 문으로 추가합니다.
-for (item of tabItems) {
+for (const item of tabItems) {
   const indexNumber = item.index
   const categoryText = item.category
   const svgIcon = item.svgTag
@@ -56,15 +56,15 @@ for (item of tabItems) {
 
   const buttonHTML = `
       <button 
-        type="button" 
+        type="button"
+        id="tab-btn-${indexNumber}"
         class="tab-box--button js-tab-button ${isFirst ? "is-active" : ""}"
         aria-selected="${isFirst ? "true" : "false"}"
         aria-controls="tab-content${indexNumber}"
-        tabindex="2"
         role="tab"
       >
         <div class="tab-button--wrapper">
-          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" aria-controls="tab-item1" class="icons">
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="icons">
             ${svgIcon}
           </svg>
           <span>${categoryText}</span>
