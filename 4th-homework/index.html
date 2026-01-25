@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8" />
-    <title>텝 메뉴 포트폴리오 예제</title>
+    <title>캐러셀 슬라이드 예제</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="/images/ecmascript-logo.png" type="image/png" />
@@ -12,182 +12,94 @@
   </head>
 
   <body class="">
-    <h1>텝 메뉴 포트폴리오 예제</h1>
 
-    <!-- 컴포넌트 전부 -->
-    <section class="tab-box--wrapper">
+    <h1>카카오게임즈 캐러셀 예제</h1>
 
-      <!-- 상단 버튼 컴포넌트 -->
-      <div class="tab-box--header" role="tablist">
-        <!-- 리액트 처럼 컴포넌트 랜더링 되도록 JS에 넣었습니다. -->
+    <article class="carousel-wrapper">
+
+      <!-- 상단 영역 -->
+      <div class="carousel-top">
+
+        <!-- 추가 수정 : 접근성을 위해 추가 속성을 입력할 것. -->
+        <a href="#none" class="carousel-title" aria-label="카카오게임즈 웹사이트 바로가기 (새 창)" rel="noopener noreferrer" target="_blank">
+
+          <img src="./images/game-icon.png" alt=""/>
+          
+          <h2>추천 게임</h2>
+          
+          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0.256286 0.251054C0.598002 -0.0836847 1.1519 -0.0836847 1.49361 0.251054L6.74371 5.39397C7.08543 5.72871 7.08543 6.27129 6.74371 6.60603L1.49361 11.7489C1.1519 12.0837 0.598002 12.0837 0.256286 11.7489C-0.0854288 11.4142 -0.0854288 10.8716 0.256286 10.5369L4.88772 6L0.256286 1.46312C-0.0854288 1.12838 -0.0854288 0.585793 0.256286 0.251054Z" fill="#858585"/>
+          </svg>
+        </a>
       </div>
 
-      <!-- 탭 아이템 -->
-      <div class="tab-box--bottom">
 
-        <!-- label for="" 처럼 labelledby로 연결해야 한다! -->
-        <div 
-          id="tab-content0" 
-          class="tab-container--item js-tab-panel" 
-          role="tabpanel" 
-          aria-labelledby="tab-btn-0" 
-          tabindex="0"
-        >
-        <h2>계좌 조회</h2>
-          <div class="tab-component">
-            <div class="account-item">
-              <h3 class="account-title">입출금 계좌</h3>
-              <p class="account-number">123-456-789012</p>
-              <p class="account-balance"><span class="account-balance--number">12,345,678</span><span> 원</span></p>
-            </div>
-            <div class="account-item">
-              <h3 class="account-title">입출금 계좌</h3>
-              <p class="account-number">123-456-789012</p>
-              <p class="account-balance"><span class="account-balance--number">12,345,678</span><span> 원</span></p>
-            </div>
-          </div>
-        </div>
-
-        <div 
-          id="tab-content1" 
-          class="tab-container--item js-tab-panel" 
-          role="tabpanel" 
-          aria-labelledby="tab-btn-1" 
-          tabindex="0"
-          hidden
-        >
-          <h2>투자 포트폴리오</h2>
-          <div class="tab-component">
-            <div class="invest-item">
-              <div class="invest-item--title">
-                <h3>국내 주식</h3>
-                <p>10종목 보유</p>
+      <!-- 아이템 영역 -->
+      <div class="carousel-viewport">
+        <ul class="carousel-list">
+          <li class="carousel-page" id="carousel-left" role="group" aria-roledescription="슬라이드" aria-labelledby="game-1-title">
+            <a href="#none" class="carousel-item" target="_blank" rel="noopener noreferrer" aria-label="'크로노 오디세이' 웹사이트 바로가기 (새창)">
+              <div class="img-wrap">
+                <img src="./images/item1-1.png" alt="" data-id="img-character"/>
+                <img src="./images/item1-2.png" alt="" data-id="img-bg" />
               </div>
-              <div class="invest-item--info">
-                <p class="invest-balance">23,456,789 원</p>
-                <p class="invest-dcr" data-role="plus">+5.2%</p>
+              <div class="text-content">
+                <h3 class="carousel-item-title">
+                  크로노 오디세이
+                </h3>
+                <p class="carousel-item-desc">
+                  멈춰 있던 시간이 흐른다
+                </p>
+                <p class="carousel-item-type">
+                  MMORPG
+                </p>
               </div>
-            </div>
-            <div class="invest-item">
-              <div class="invest-item--title">
-                <h3>해외 주식</h3>
-                <p>10종목 보유</p>
+            </a>
+          </li>
+          <li class="carousel-page" id="carousel-right" role="group" aria-roledescription="슬라이드" aria-labelledby="game-1-title">
+            <a href="#none" class="carousel-item" target="_blank" rel="noopener noreferrer" aria-label="'크로노 오디세이' 웹사이트 바로가기 (새창)">
+              <div class="img-wrap">
+                <img src="./images/item2-1.png" alt="" data-id="img-character"/>
+                <img src="./images/item2-2.png" alt="" data-id="img-bg" />
               </div>
-              <div class="invest-item--info">
-                <p class="invest-balance">23,456,789 원</p>
-                <p class="invest-dcr" data-role="minus">-2.1%</p>
+              <div class="text-content">
+                <h3 class="carousel-item-title">
+                  아키에이지 워
+                </h3>
+                <p class="carousel-item-desc">
+                  시대의 전설을 향해
+                </p>
+                <p class="carousel-item-type">
+                  MMORPG
+                </p>
               </div>
-            </div>
-            <div class="invest-item">
-              <div class="invest-item--title">
-                <h3>펀드</h3>
-                <p>3개 상품</p>
-              </div>
-              <div class="invest-item--info">
-                <p class="invest-balance">8,123,456 원</p>
-                <p class="invest-dcr" data-role="minus">+3.7%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div 
-          id="tab-content2" 
-          class="tab-container--item js-tab-panel" 
-          role="tabpanel" 
-          aria-labelledby="tab-btn-2" 
-          tabindex="0"
-          hidden
-        >
-          <h2>거래 내역</h2>
-          <div class="tab-component">
-            <div class="transaction-item">
-              <div class="transaction-item--title">
-                <time class="date">2026.01.22</time>
-                <h3>스타벅스 강남점</h3>
-              </div>
-              <div class="transaction-item--info">
-                <p class="transaction-charge" data-role="minus">-6500 원</p>
-              </div>
-            </div>            
-            <div class="transaction-item">
-              <div class="transaction-item--title">
-                <time class="date">2026.01.22</time>
-                <h3>급여 입금</h3>
-              </div>
-              <div class="transaction-item--info">
-                <p class="transaction-charge" data-role="plus">+3,500,000 원</p>
-              </div>
-            </div>   
-            <div class="transaction-item">
-              <div class="transaction-item--title">
-                <time class="date">2026.01.21</time>
-                <h3>GS25 편의점</h3>
-              </div>
-              <div class="transaction-item--info">
-                <p class="transaction-charge" data-role="minus">-12,300 원</p>
-              </div>
-            </div>                 
-            <div class="transaction-item">
-              <div class="transaction-item--title">
-                <time class="date">2026.01.21</time>
-                <h3>카카오페이 송금</h3>
-              </div>
-              <div class="transaction-item--info">
-                <p class="transaction-charge" data-role="minus">-50,000 원</p>
-              </div>
-            </div>                 
-            <div class="transaction-item">
-              <div class="transaction-item--title">
-                <time class="date">2026.01.22</time>
-                <h3>쿠팡 결제</h3>
-              </div>
-              <div class="transaction-item--info">
-                <p class="transaction-charge" data-role="minus">-89,000 원</p>
-              </div>
-            </div>                 
-          </div>
-        </div>
-
-        <div 
-          id="tab-content3" 
-          class="tab-container--item js-tab-panel" 
-          role="tabpanel" 
-          aria-labelledby="tab-btn-3" 
-          tabindex="0"
-          hidden
-        >
-          <h2>카드 관리</h2>
-          <div class="tab-component">
-            <div class="card-item visa">
-              <h3 class="card-title">신한카드</h3>
-              <p class="card-number">1234 5678 9012 3456</p>
-              <div class="card-info">
-                <div class="card-use">
-                  <p class="card-use-title">이번 달 사용액</p>
-                  <p class="card-balance">1,234,560 원</p>
-                </div>
-                <div class="card-brand">
-                  VISA
-                </div>
-              </div>
-            </div>
-            <div class="card-item master">
-              <h3 class="card-title">KB국민카드</h3>
-              <p class="card-number">9876 5432 1098 7654</p>
-              <div class="card-info">
-                <div class="card-use">
-                  <p class="card-balance-title">이번 달 사용액</p>
-                  <p class="card-balance">567,890 원</p>
-                </div>
-                <div class="card-brand">
-                  Mastercard
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            </a>
+          </li>
+        </ul>
+      </div>      
+      
+      <!-- 컨트롤러 영역 -->
+      <div class="carousel-controller">
+        <button type="button" class="prev" aria-label="이전 슬라이드">
+        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M7.70695 0.292893C7.31643 -0.0976311 6.68342 -0.0976311 6.29289 0.292893L0.292892 6.29289C-0.0976324 6.68342 -0.0976324 7.31643 0.292892 7.70696L6.29289 13.707C6.68342 14.0975 7.31643 14.0975 7.70695 13.707C8.09748 13.3164 8.09748 12.6834 7.70695 12.2929L2.41399 6.99992L7.70695 1.70696C8.09748 1.31643 8.09748 0.683418 7.70695 0.292893Z" fill="#474747"/>
+        </svg>
+        </button>
+        <p class="carousel-page">
+          <span class="sr-only">현재 페이지</span>            
+          <span class="current-page">1</span>
+          <span aria-hidden="true">/</span>   
+          <span class="sr-only">그리고 총 페이지</span>            
+          <span class="total-page">3</span>
+        </p>
+        <button type="button" class="next" aria-label="다음 슬라이드">
+          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0.292893 0.292893C0.683418 -0.0976311 1.31643 -0.0976311 1.70696 0.292893L7.70696 6.29289C8.09748 6.68342 8.09748 7.31643 7.70696 7.70696L1.70696 13.707C1.31643 14.0975 0.683418 14.0975 0.292893 13.707C-0.0976311 13.3164 -0.0976311 12.6834 0.292893 12.2929L5.58586 6.99992L0.292893 1.70696C-0.0976311 1.31643 -0.0976311 0.683418 0.292893 0.292893Z" fill="#474747"/>
+          </svg>
+        </button>
       </div>
-    </section>
+
+    </article>
   </body>
+
 </html>

@@ -1,100 +1,125 @@
-// SVG 내용물을 객체화 합니다.
-// 인덱스 넘버, 버튼 아이콘, 내용을 객체로 저장합니다.
-const tabItems = [
+// 우선 들어갈 내용을 객체로 만든다.
+// 우선 고유 인덱스를 만들고
+// 썸네일, 타이틀, 설명, 장르를 넣는다.
+const items = [
   {
-    index: 0,
-    category: '계좌 조회',
-    svgTag: `
-      <g clip-path="url(#clip0_111_75)">
-      <path d="M22.0405 6.53516H3.42725C2.99561 6.53516 2.646 6.18555 2.646 5.75391C2.646 5.32227 2.99561 4.97266 3.42725 4.97266H22.1772C22.6089 4.97266 22.9585 4.62305 22.9585 4.19141C22.9585 2.89697 21.9092 1.84766 20.6147 1.84766H2.646C0.919922 1.84766 -0.479004 3.24658 -0.479004 4.97266V20.5977C-0.479004 22.3237 0.919922 23.7227 2.646 23.7227H22.0405C23.4087 23.7227 24.521 22.6714 24.521 21.3789V8.87891C24.521 7.58643 23.4087 6.53516 22.0405 6.53516ZM19.8335 16.6914C18.9707 16.6914 18.271 15.9917 18.271 15.1289C18.271 14.2661 18.9707 13.5664 19.8335 13.5664C20.6963 13.5664 21.396 14.2661 21.396 15.1289C21.396 15.9917 20.6963 16.6914 19.8335 16.6914Z" fill="currentColor"/>
-      </g>
-      <defs>
-      <clipPath id="clip0_111_75">
-      <rect width="25" height="25" fill="white"/>
-      </clipPath>
-      </defs>
-    `
+    itemNumber: 0,
+    itemThumbnail: ['item1-1.png', 'item1-2.png'],
+    itemTitle: "크로노 오디세이",
+    itemDesc: "멈춰 있던 시간이 흐른다",
+    itemType: "MMORPG"
   },
   {
-    index: 1,
-    category: '투자 현황',
-    svgTag: `
-      <path d="M24.2188 18.75H3.125V3.90625C3.125 3.47461 2.77539 3.125 2.34375 3.125H0.78125C0.349609 3.125 0 3.47461 0 3.90625V20.3125C0 21.1753 0.699707 21.875 1.5625 21.875H24.2188C24.6504 21.875 25 21.5254 25 21.0938V19.5312C25 19.0996 24.6504 18.75 24.2188 18.75ZM22.6562 4.6875H16.8916C15.8477 4.6875 15.3247 5.94971 16.063 6.68799L17.645 8.27002L14.0625 11.853L10.48 8.27051C9.86963 7.66016 8.88037 7.66016 8.27051 8.27051L4.9165 11.6245C4.61133 11.9297 4.61133 12.4243 4.9165 12.7295L6.021 13.834C6.32617 14.1392 6.8208 14.1392 7.12598 13.834L9.375 11.5845L12.9575 15.167C13.5679 15.7773 14.5571 15.7773 15.167 15.167L19.8545 10.4795L21.4365 12.0615C22.1748 12.7998 23.437 12.2769 23.437 11.2329V5.46875C23.4375 5.03711 23.0879 4.6875 22.6562 4.6875Z" fill="currentColor"/>
-    `
+    itemNumber: 1,
+    itemThumbnail: ['item2-1.png', 'item2-2.png'],
+    itemTitle: "아키에이지 워",
+    itemDesc: "시대의 전설을 향해",
+    itemType: "MMORPG"
   },
   {
-    index: 2,
-    category: '거래 내역',
-    svgTag: `
-      <path d="M17.1875 12.5H7.8125V15.625H17.1875V12.5ZM21.5332 5.12695L16.7529 0.341797C16.5332 0.12207 16.2354 0 15.9229 0H15.625V6.25H21.875V5.95215C21.875 5.64453 21.7529 5.34668 21.5332 5.12695ZM14.0625 6.64062V0H4.29688C3.64746 0 3.125 0.522461 3.125 1.17188V23.8281C3.125 24.4775 3.64746 25 4.29688 25H20.7031C21.3525 25 21.875 24.4775 21.875 23.8281V7.8125H15.2344C14.5898 7.8125 14.0625 7.28516 14.0625 6.64062ZM6.25 3.51562C6.25 3.2998 6.4248 3.125 6.64062 3.125H10.5469C10.7627 3.125 10.9375 3.2998 10.9375 3.51562V4.29688C10.9375 4.5127 10.7627 4.6875 10.5469 4.6875H6.64062C6.4248 4.6875 6.25 4.5127 6.25 4.29688V3.51562ZM6.25 6.64062C6.25 6.4248 6.4248 6.25 6.64062 6.25H10.5469C10.7627 6.25 10.9375 6.4248 10.9375 6.64062V7.42188C10.9375 7.6377 10.7627 7.8125 10.5469 7.8125H6.64062C6.4248 7.8125 6.25 7.6377 6.25 7.42188V6.64062ZM18.75 21.4844C18.75 21.7002 18.5752 21.875 18.3594 21.875H14.4531C14.2373 21.875 14.0625 21.7002 14.0625 21.4844V20.7031C14.0625 20.4873 14.2373 20.3125 14.4531 20.3125H18.3594C18.5752 20.3125 18.75 20.4873 18.75 20.7031V21.4844ZM18.75 11.7188V16.4062C18.75 16.8379 18.4004 17.1875 17.9688 17.1875H7.03125C6.59961 17.1875 6.25 16.8379 6.25 16.4062V11.7188C6.25 11.2871 6.59961 10.9375 7.03125 10.9375H17.9688C18.4004 10.9375 18.75 11.2871 18.75 11.7188Z" fill="currentColor"/>
-    `
+    itemNumber: 2,
+    itemThumbnail: ['item3-1.png', 'item3-2.png'],
+    itemTitle: "패스 오브 엑자일 2",
+    itemDesc: "얼리 액세스 오픈!",
+    itemType: "핵앤슬래시"
   },
   {
-    index: 3,
-    category: '카드 관리',
-    svgTag: `
-      <path d="M0 20.1389C0 21.2891 0.93316 22.2222 2.08333 22.2222H22.9167C24.0668 22.2222 25 21.2891 25 20.1389V12.5H0V20.1389ZM8.33333 17.1875C8.33333 16.901 8.56771 16.6667 8.85417 16.6667H14.7569C15.0434 16.6667 15.2778 16.901 15.2778 17.1875V18.9236C15.2778 19.2101 15.0434 19.4444 14.7569 19.4444H8.85417C8.56771 19.4444 8.33333 19.2101 8.33333 18.9236V17.1875ZM2.77778 17.1875C2.77778 16.901 3.01215 16.6667 3.29861 16.6667H6.42361C6.71007 16.6667 6.94444 16.901 6.94444 17.1875V18.9236C6.94444 19.2101 6.71007 19.4444 6.42361 19.4444H3.29861C3.01215 19.4444 2.77778 19.2101 2.77778 18.9236V17.1875ZM25 4.8611V6.94444H0V4.8611C0 3.71093 0.93316 2.77777 2.08333 2.77777H22.9167C24.0668 2.77777 25 3.71093 25 4.8611Z" fill="currentColor"/>
-    `
+    itemNumber: 3,
+    itemThumbnail: ['item4-1.png', 'item4-2.png'],
+    itemTitle: "오딘 : 발할라 라이징",
+    itemDesc: "신의 영역을 차지하라",
+    itemType: "MMORPG"
   },
+  {
+    itemNumber: 4,
+    itemThumbnail: ['item5-1.png', 'item5-2.png'],
+    itemTitle: "롬: 리멤버 오브 마제스티",
+    itemDesc: "세계는 하나의 전장이 된다",
+    itemType: "MMORPG"
+  },
+  {
+    itemNumber: 5,
+    itemThumbnail: ['item6-1.png', 'item6-2.png'],
+    itemTitle: "배틀그라운드",
+    itemDesc: "최후까지 생존하라!",
+    itemType: "배틀로얄"
+  }
 ]
 
-// 전역 변수는 여기서 선언합니다.
-const tabMenuHeader = document.querySelector('.tab-box--header')
-let tags = ''
+// 현재 캐러셀 아이템 수와 현제 아이템 수를 나눈다.
+let carouselIndex = 0
+const CAROUSEL_MAX_ITEM = 2
+const CAROUSEL_TOTAL_ITEM = items.length
+const CAROUSEL_TOTAL_PAGE = (CAROUSEL_TOTAL_ITEM / CAROUSEL_MAX_ITEM) - 1
 
+// 버튼 객체와 페이지 DOM에서 읽어오기.
+const carouselController = document.querySelector('.carousel-controller')
+const prevButton = carouselController.querySelector('.prev')
+const nextButton = carouselController.querySelector('.next')
 
-// DOM이 열렸을 때, 해당 랜더링으로 추가합니다.
-// 유지보수를 위해 for 문으로 추가합니다.
-for (const item of tabItems) {
-  const indexNumber = item.index
-  const categoryText = item.category
-  const svgIcon = item.svgTag
+// 방향 설정
+prevButton.addEventListener('click', () => carouselControll('prev'))
+nextButton.addEventListener('click', () => carouselControll('next'))
 
-  // 이렇게 하는게 낫다는 것을
-  // 검색으로 알았다.
-  const isFirst = indexNumber === 0
-
-  const buttonHTML = `
-      <button 
-        type="button"
-        id="tab-btn-${indexNumber}"
-        class="tab-box--button js-tab-button ${isFirst ? "is-active" : ""}"
-        aria-selected="${isFirst ? "true" : "false"}"
-        aria-controls="tab-content${indexNumber}"
-        role="tab"
-      >
-        <div class="tab-button--wrapper">
-          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="icons">
-            ${svgIcon}
-          </svg>
-          <span>${categoryText}</span>
-        </div>
-      </button>
-  `
-  tags += buttonHTML;
-}
-tabMenuHeader.innerHTML = tags;
-
-// 함수가 실행된 이후에 변수를 설정해야 한다.
-// 이 부분 몰라서 순서를 바꿔보다 알게 되었다.
-const tabButtons = tabMenuHeader.querySelectorAll('.js-tab-button')
-const tabContents = document.querySelectorAll('.js-tab-panel')
-
-// 클릭 이벤트를 주기 위한 함수
-tabButtons.forEach((el, idx) => {
-  el.addEventListener('click', (e) => {
-
-    // 접근성, 클래스를 전부 초기화 시킨다.
-    for (let i = 0, j = tabButtons.length; i < j; i++ ) {
-      tabButtons[i].classList.remove('is-active')
-      tabButtons[i].setAttribute('aria-selected', 'false')
-      tabContents[i].hidden = true
+function carouselControll(direction) {
+  // 1. 방향에 따라 증감을 해야한다.
+  // 2. 0이하로 내려가면 다시 마지막 페이지로 2 -> 1 -> 0 -> 2
+  // 3. 반대로 페이지 이상 가면 다시 초기화 한다. 0 -> 1 -> 2 -> 0
+  if (direction === 'prev') {
+    if (carouselIndex <= 0) {
+      carouselIndex = CAROUSEL_TOTAL_PAGE
+    } else {
+      carouselIndex --
     }
-    
-    // 해당 클릭 인덱스만 클래스 부여
-    // 접근성 향상을 위해 aria-selected를 조정
-    tabButtons[idx].classList.add('is-active')
-    tabButtons[idx].setAttribute('aria-selected', 'true')
-    tabContents[idx].hidden = false
-  })
-})
+  } else {
+    if (carouselIndex >= CAROUSEL_TOTAL_PAGE) {
+      carouselIndex = 0
+    } else {
+      carouselIndex ++
+    }
+  }
+
+  // 0    | 1    | 2
+  // 0, 1 | 2, 3 | 4, 5
+  // 실제 인덱스 (x2), 하지만 0,1,2,3
+  // 인덱스 X 최대 갯수로 정하는게 좋을 것 같다.
+  const carouselNumber = carouselIndex * CAROUSEL_MAX_ITEM
+
+  // 너무 복붙이라 따로 함수를 호출해 좌우를 바꾼다.
+  updateCard('left', carouselNumber)
+  updateCard('right', (carouselNumber + 1))
+
+  // 마지막 페이지 번호 변경
+  const pageNumber = document.querySelector('.current-page')
+  pageNumber.innerText = carouselIndex + 1
+}
+
+function updateCard(direction, index) {
+  // 기본 변수 card로 접근 가능하도록 설정
+  // 왼쪽인지 오른쪽인지 설정을 안해 TDZ로 변수만 설정.
+  let card = null
+
+  // 왼쪽인지 오른쪽인지 삼항연산자로 결정
+  // getElementById가 더 빨라서 querySelector 대신 사용
+  direction === 'left' ?
+    (card = document.getElementById('carousel-left')) :
+    (card = document.getElementById('carousel-right'))
+
+  if (card) {
+    // 아이템 변수 설정
+    const cardCharacter = card.querySelector('[data-id="img-character"]')
+    const cardBg = card.querySelector('[data-id="img-bg"]')
+    const cardTitle = card.querySelector('.carousel-item-title')
+    const cardDesc = card.querySelector('.carousel-item-desc')
+    const cardType = card.querySelector('.carousel-item-type')
+
+    // .src 속성과 .innerText로 변경합니다.
+    cardCharacter.src = `./images/${items[index].itemThumbnail[0]}`
+    cardBg.src = `./images/${items[index].itemThumbnail[1]}`
+    cardTitle.textContent = items[index].itemTitle
+    cardDesc.textContent = items[index].itemDesc
+    cardType.textContent = items[index].itemType
+  } else {
+    console.error('데이터를 잘못 받아왔습니다!')
+  }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>텝 메뉴 포트폴리오 예제</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/ecmascript-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <script src="/scripts/main.js" defer></script>
+  </head>
+
+  <body class="">
+    <h1>텝 메뉴 포트폴리오 예제</h1>
+
+    <!-- 컴포넌트 전부 -->
+    <section class="tab-box--wrapper">
+
+      <!-- 상단 버튼 컴포넌트 -->
+      <div class="tab-box--header" role="tablist">
+        <!-- 리액트 처럼 컴포넌트 랜더링 되도록 JS에 넣었습니다. -->
+      </div>
+
+      <!-- 탭 아이템 -->
+      <div class="tab-box--bottom">
+
+        <!-- label for="" 처럼 labelledby로 연결해야 한다! -->
+        <div 
+          id="tab-content0" 
+          class="tab-container--item js-tab-panel" 
+          role="tabpanel" 
+          aria-labelledby="tab-btn-0" 
+          tabindex="0"
+        >
+        <h2>계좌 조회</h2>
+          <div class="tab-component">
+            <div class="account-item">
+              <h3 class="account-title">입출금 계좌</h3>
+              <p class="account-number">123-456-789012</p>
+              <p class="account-balance"><span class="account-balance--number">12,345,678</span><span> 원</span></p>
+            </div>
+            <div class="account-item">
+              <h3 class="account-title">입출금 계좌</h3>
+              <p class="account-number">123-456-789012</p>
+              <p class="account-balance"><span class="account-balance--number">12,345,678</span><span> 원</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div 
+          id="tab-content1" 
+          class="tab-container--item js-tab-panel" 
+          role="tabpanel" 
+          aria-labelledby="tab-btn-1" 
+          tabindex="0"
+          hidden
+        >
+          <h2>투자 포트폴리오</h2>
+          <div class="tab-component">
+            <div class="invest-item">
+              <div class="invest-item--title">
+                <h3>국내 주식</h3>
+                <p>10종목 보유</p>
+              </div>
+              <div class="invest-item--info">
+                <p class="invest-balance">23,456,789 원</p>
+                <p class="invest-dcr" data-role="plus">+5.2%</p>
+              </div>
+            </div>
+            <div class="invest-item">
+              <div class="invest-item--title">
+                <h3>해외 주식</h3>
+                <p>10종목 보유</p>
+              </div>
+              <div class="invest-item--info">
+                <p class="invest-balance">23,456,789 원</p>
+                <p class="invest-dcr" data-role="minus">-2.1%</p>
+              </div>
+            </div>
+            <div class="invest-item">
+              <div class="invest-item--title">
+                <h3>펀드</h3>
+                <p>3개 상품</p>
+              </div>
+              <div class="invest-item--info">
+                <p class="invest-balance">8,123,456 원</p>
+                <p class="invest-dcr" data-role="minus">+3.7%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div 
+          id="tab-content2" 
+          class="tab-container--item js-tab-panel" 
+          role="tabpanel" 
+          aria-labelledby="tab-btn-2" 
+          tabindex="0"
+          hidden
+        >
+          <h2>거래 내역</h2>
+          <div class="tab-component">
+            <div class="transaction-item">
+              <div class="transaction-item--title">
+                <time class="date">2026.01.22</time>
+                <h3>스타벅스 강남점</h3>
+              </div>
+              <div class="transaction-item--info">
+                <p class="transaction-charge" data-role="minus">-6500 원</p>
+              </div>
+            </div>            
+            <div class="transaction-item">
+              <div class="transaction-item--title">
+                <time class="date">2026.01.22</time>
+                <h3>급여 입금</h3>
+              </div>
+              <div class="transaction-item--info">
+                <p class="transaction-charge" data-role="plus">+3,500,000 원</p>
+              </div>
+            </div>   
+            <div class="transaction-item">
+              <div class="transaction-item--title">
+                <time class="date">2026.01.21</time>
+                <h3>GS25 편의점</h3>
+              </div>
+              <div class="transaction-item--info">
+                <p class="transaction-charge" data-role="minus">-12,300 원</p>
+              </div>
+            </div>                 
+            <div class="transaction-item">
+              <div class="transaction-item--title">
+                <time class="date">2026.01.21</time>
+                <h3>카카오페이 송금</h3>
+              </div>
+              <div class="transaction-item--info">
+                <p class="transaction-charge" data-role="minus">-50,000 원</p>
+              </div>
+            </div>                 
+            <div class="transaction-item">
+              <div class="transaction-item--title">
+                <time class="date">2026.01.22</time>
+                <h3>쿠팡 결제</h3>
+              </div>
+              <div class="transaction-item--info">
+                <p class="transaction-charge" data-role="minus">-89,000 원</p>
+              </div>
+            </div>                 
+          </div>
+        </div>
+
+        <div 
+          id="tab-content3" 
+          class="tab-container--item js-tab-panel" 
+          role="tabpanel" 
+          aria-labelledby="tab-btn-3" 
+          tabindex="0"
+          hidden
+        >
+          <h2>카드 관리</h2>
+          <div class="tab-component">
+            <div class="card-item visa">
+              <h3 class="card-title">신한카드</h3>
+              <p class="card-number">1234 5678 9012 3456</p>
+              <div class="card-info">
+                <div class="card-use">
+                  <p class="card-use-title">이번 달 사용액</p>
+                  <p class="card-balance">1,234,560 원</p>
+                </div>
+                <div class="card-brand">
+                  VISA
+                </div>
+              </div>
+            </div>
+            <div class="card-item master">
+              <h3 class="card-title">KB국민카드</h3>
+              <p class="card-number">9876 5432 1098 7654</p>
+              <div class="card-info">
+                <div class="card-use">
+                  <p class="card-balance-title">이번 달 사용액</p>
+                  <p class="card-balance">567,890 원</p>
+                </div>
+                <div class="card-brand">
+                  Mastercard
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

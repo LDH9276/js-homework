@@ -6,6 +6,6 @@
 @import '/styles/common/_theme.css' layer(theme);
 @import './_theme.css' layer(theme);
 
-@import './components/_carousel.css' layer(components);
+@import './components/_tabmenu.css' layer(components);
 
 @import './_demo.css';
