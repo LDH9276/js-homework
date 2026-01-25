@@ -1,7 +1,13 @@
+body{
+  background: var(--gary-color-200);
+  color: #fff;
+}
+
 .tab-box--wrapper{
   max-width: 35.5em;
   margin-inline: auto;
   border-radius: 1em;
+  background: var(--white-color);
   overflow: hidden;
 }
 
@@ -75,7 +81,7 @@
   padding: 34px 29px 0;
 
   h2 {
-    margin-bottom: 16px;
+    margin-block-end: 16px;
     color: var(--black-color);
     font-size: 18px;
     font-weight: 700;
@@ -89,14 +95,14 @@
   line-height: 1;
 
   .account-title{
-    margin-bottom: 12px;
+    margin-block-end: 12px;
     color: var(--gary-color-100);
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.02em;
   }
   .account-number{
-    margin-bottom: 14px;
+    margin-block-end: 14px;
     color: var(--dark-black-color);
     font-size: 15px;
     font-weight: 500;
@@ -274,3 +280,18 @@
   }
 }
 
+#tab-content0{
+  margin-block-end: 48px;
+}
+
+#tab-content1{
+  margin-block-end: 55px;
+}
+
+#tab-content2{
+  margin-block-end: 26px;
+}
+
+#tab-content3{
+  margin-block-end: 53px;
+}
