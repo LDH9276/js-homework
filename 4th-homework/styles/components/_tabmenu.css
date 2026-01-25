@@ -173,11 +173,11 @@ body{
       font-weight: 500;
       line-height: 20px;
 
-      &.plus{
+      &[data-role="plus"]{
         color: var(--second-color);
       }
 
-      &.minus{
+      &[data-role="minus"]{
         color: var(--warn-color);
       }
     }
@@ -216,7 +216,7 @@ body{
       line-break: 22px;
     }
   }
-  
+  invest-dcr
   .transaction-item--info{
     font-size: 16px;
     font-weight: 700;
