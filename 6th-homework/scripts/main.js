@@ -2,7 +2,7 @@
 const planItems = [
   {
     index: 0,
-    planName: 'Free',
+    planName: 'Basic',
     KoreanName: '무료',
     planPrice: 0,
     planInfo: ['기본 대시보드 제공', '월 10회 리포트', '커뮤니티 지원']
