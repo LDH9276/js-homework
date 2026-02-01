@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>요금제 플랜 비교 컴포넌트 예제</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/ecmascript-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <script src="/scripts/main.js" defer></script>
+  </head>
+
+  <body class="">
+    <h1>요금제 플랜 비교 컴포넌트 예제</h1>
+
+    <!-- 컴포넌트 전부 -->
+    <section class="charge-plan">
+      <!-- flex 박스 -->
+      <div class="plan-box--wrapper" aria-label="요금제 선택">
+      </div>
+
+      <!-- 하단 요금제 선택 -->
+      <div class="plan-select-modal" aria-live="polite">
+        <p>
+          <span class="modal-plan--name">BASIC</span>
+          <span> 플랜(</span>
+          <span data-id="modal-plan-price">무료</span>
+          <span>)을 선택하셨습니다.</span>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

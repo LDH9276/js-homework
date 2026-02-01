@@ -1,0 +1,199 @@
+body{
+  background: rgba(233, 238, 243);
+  color: #fff;
+
+  h1{
+    margin-block: 38px;
+    text-align: center;
+  }
+}
+
+:root{
+  --black : #000;
+  --black-200 : #091520;
+  --white : #fff;
+  --gray-200 : #f2f5f8;
+  --gray-400 : #8B9DB1;
+}
+
+.plan-box--wrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 278px);
+  gap:20px;
+  justify-content: center;
+}
+
+.plan-box--item{
+  position: relative;
+  display: grid;
+  grid-template-columns: subgrid; 
+  max-width: 278px;
+  inline-size: 100%;
+  padding: 0;
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.2s ease-out;
+
+&:hover, 
+&:focus-within, 
+&.is-active {
+  transform: translateY(-14px);
+}
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 8;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url(../../images/checlbox.svg) no-repeat center;
+    transition: scale 0.1s ease-in-out;
+    translate: -50% -50%;
+    scale: 0;
+  }
+  &.is-active::after{
+    scale:1;
+  }
+
+  .plan-box--block{
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 25px;
+    block-size: 100%;
+    padding: 30px 33px;
+    border-radius: 20px;
+    outline: 2px solid var(--gray-200);
+    background-color: var(--white);
+    transition: all 0.2s ease-out;
+  }
+
+  &:not(.is-active):focus-within .plan-box--block,
+  &:not(.is-active):hover .plan-box--block{
+    outline: 2px solid #BECCDB;
+  }
+
+  &.is-active .plan-box--block{
+    outline: 4px solid #D2E0F9;
+    background: #E8EFFD;
+  }
+
+  .js-plan-button{
+    position: absolute;
+    top: 0; left: 0;
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: 20px;
+    outline: none;
+  }
+
+  &.is-active .js-plan-button{
+    outline: 2px solid #055FEA;
+  }
+}
+
+.plan-header--box{
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 25px;
+  align-items: center;
+
+
+  .plan-name{
+    color: var(--gray-400);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .plan-price{
+    color: var(--black-200);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 52px;
+    letter-spacing: 0.02em;
+  }
+}
+
+.plan-info--border{
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: #F5F7FA;
+  color: transparent;
+}
+
+.plan-bottom--box{
+  width: 100%;
+  color: var(--black);
+
+  li{
+    position: relative;
+    width: 100%;
+    padding-left: 24px;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+
+  li::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url(../../images/check.svg) no-repeat center;
+    translate: 0 -50%;
+  }
+
+  & li ~ li {
+    margin-top: 18px;
+  }
+}
+
+.plan-select-modal{
+  display: block;
+  max-width: 442px;
+  inline-size: 100%;
+  margin-top: 48px;
+  margin-inline: auto;
+  border-radius: 100px;
+  background: var(--white);
+  box-shadow: 0 0 16px rgba(30, 38, 60, 0.1);
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 69px;
+  letter-spacing: 0.02em;
+  text-align: center;
+
+  p{
+    display: flex;
+    justify-content: center;
+  }
+
+  span{
+    display: block;
+  }
+
+  .modal-plan--name{
+    margin-inline-end: 4px;
+    color: #407EEE;
+    font-weight: 800;
+  }
+
+  [data-id = "modal-plan-price"]{
+    margin-inline: 1px;
+    letter-spacing: 0em;
+  }
+
+}
